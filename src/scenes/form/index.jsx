@@ -17,7 +17,7 @@ const phoneRegExp =
   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 
 const userSchema = yup.object().shape({
-  firstName: yup.string().required("put your fucking name"),
+  firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
   email: yup.string().email("invalid email").required("required"),
   contact: yup
@@ -86,7 +86,7 @@ const Form = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.lastName}
-                name="lastName" // ✅ Fixed name attribute
+                name="lastName"
                 error={!!touched.lastName && !!errors.lastName}
                 helperText={touched.lastName && errors.lastName}
                 sx={{ gridColumn: "span 2" }}
@@ -144,14 +144,10 @@ const Form = () => {
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
-            <Box mt={2}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                disabled={!isValid || !dirty}
-              >
-                Submit
+            <Box mt={2}></Box>
+            <Box display={"flex"} justifyContent={"end"} mt={"20px"}>
+              <Button type="submit" color="secondary" variant="contained">
+                Create New User
               </Button>
             </Box>
           </form>
