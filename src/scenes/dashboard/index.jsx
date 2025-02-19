@@ -3,7 +3,7 @@ import { Header } from "../../components/Header";
 
 const Dashboard = () => {
   return (
-    <Box mb={"20px"}>
+    <Box m={"20px"}>
       <Box
         display={"flex"}
         justifyContent={"space-between"}
